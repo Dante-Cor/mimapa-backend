@@ -9,8 +9,8 @@ public class CorsConfig implements WebMvcConfigurer {
 
     @Override
     public void addCorsMappings(CorsRegistry registry) {
-        registry.addMapping("/**")
-                .allowedOrigins("*") // Permite peticiones desde cualquier origen (Render)
+        registry.addMapping("/**") // Permitir todas las rutas de la API
+                .allowedOrigins("https://mimapa-zmg.onrender.com") // Solo tu frontend
                 .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
                 .allowedHeaders("*");
     }

@@ -13,7 +13,7 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("/api/estaciones")
-@CrossOrigin(origins = "*")
+@CrossOrigin(origins = "https://mimapa-zmg.onrender.com")
 public class EstacionController {
 
     @Autowired

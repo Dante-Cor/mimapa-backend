@@ -13,7 +13,8 @@ RUN chmod +x ./gradlew
 # Agregamos banderas de memoria para que Gradle no sature la RAM de Render
 # -Xmx384m limita a Java a usar máximo 384MB de los 512MB disponibles
 # --no-daemon evita que se quede un proceso extra colgado consumiendo RAM
-RUN ./gradlew clean build -x test --no-daemon -Dorg.gradle.jvmargs="-Xmx384m"
+# Usa el mismo Dockerfile de antes, pero asegúrate de que esta línea esté así:
+RUN ./gradlew build -x test --no-daemon -Dorg.gradle.jvmargs="-Xmx384m"
 
 # ==========================================
 # Etapa 2: Ejecución (Run)
