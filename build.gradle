@@ -1,0 +1,37 @@
+plugins {
+	id 'java'
+	id 'org.springframework.boot' version '3.3.0'
+	id 'io.spring.dependency-management' version '1.1.7'
+}
+
+group = 'com.mimapa'
+version = '0.0.1-SNAPSHOT'
+description = 'API REST geoespacial con Spring Boot y PostGIS para la red de transporte.'
+
+java {
+	toolchain {
+		languageVersion = JavaLanguageVersion.of(17)
+	}
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+    // El motor principal para la API
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+
+    // Base de Datos y persistencia
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    implementation 'org.hibernate.orm:hibernate-spatial'
+    runtimeOnly 'org.postgresql:postgresql'
+
+    // Pruebas (Corregidas)
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
